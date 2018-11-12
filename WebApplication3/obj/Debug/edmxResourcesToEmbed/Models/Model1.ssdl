@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Test_Tri_Level">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="10" />
+    <Property Name="SubCategory" Type="varchar" MaxLength="10" />
+    <Property Name="SubSubCategory" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Test_Tri_Level_Entry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Test_Tri_ID" Type="int" Nullable="false" />
+    <Property Name="Tri_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="Reg_Amount" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="TestModelStoreContainer">
+    <EntitySet Name="Test_Tri_Level" EntityType="Self.Test_Tri_Level" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Test_Tri_Level_Entry" EntityType="Self.Test_Tri_Level_Entry" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
